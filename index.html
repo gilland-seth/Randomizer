@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        font-family: arial;
+        background: linear-gradient(
+          to bottom right,
+          rgb(0, 187, 0),
+          rgb(55, 170, 55)
+        );
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 1fr;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .names-list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        list-style: none;
+        width: 700px;
+        border: 2px blue solid;
+        border-radius: 75px;
+        text-align: center;
+        background-color: rgba(0, 255, 255, 0.5);
+        padding: 15px 0px;
+      }
+
+      .names-list li {
+        background-color: rgba(255, 255, 255, 0.5);
+        width: 400px;
+        padding: 10px 0px;
+        margin: 10px 0px;
+        border-radius: 15px;
+      }
+
+      span {
+        font-size: 25px;
+        -webkit-text-stroke-color: white;
+        -webkit-text-stroke-width: 3px;
+      }
+
+      .span-spin {
+        animation: span-scale 1s 1 ease-out forwards;
+      }
+
+      /* @keyframes span-idle {
+        0% {
+          font-size: 25px;
+        }
+
+        100% {
+          font-size: 25px;
+        }
+      } */
+
+      @keyframes span-scale {
+        from {
+          font-size: 35px;
+        }
+
+        to {
+          font-size: 25px;
+        }
+      }
+
+      .random-button {
+        background-color: green;
+        color: white;
+        font-size: 30px;
+        padding: 15px;
+        transition: 0.5s;
+        border-radius: 25px;
+      }
+
+      .random-button:hover {
+        transform: scale(120%);
+        color: black;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .random-button:active {
+        color: white;
+        font-size: 35px;
+      }
+
+      .add-button {
+        background-color: blue;
+        font-size: 20px;
+      }
+
+      #seedInput {
+        width: 50px;
+      }
+
+      .add-input {
+        width: 200px;
+        height: 50px;
+      }
+    </style>
+
+    <title>Randomizer</title>
+  </head>
+  <body>
+    <div class="container" style="height: fit-content">
+      <ul class="names-list" id="names-list">
+        <!-- <li>
+          <p id="a">[Name] Points:</p>
+          <span id="a_num">num</span>
+        </li>
+        <li>
+          <p id="b">[Name] Points:</p>
+          <span id="b_num">num</span>
+        </li>
+        <li>
+          <p id="c">[Name] Points:</p>
+          <span id="c_num">num</span>
+        </li>
+        <li>
+          <p id="d">[Name] Points:</p>
+          <span id="d_num">num</span>
+        </li>
+        <li>
+          <p id="e">[Name] Points:</p>
+          <span id="e_num">num</span>
+        </li> -->
+      </ul>
+    </div>
+
+    <div class="container">
+      <button class="random-button" onclick="randomize()">RANDOMIZE</button>
+      <p id="rnd-msg">Click the button to give a point to a random member</p>
+    </div>
+
+    <div class="container">
+      <input type="text" placeholder="Add a member name" id="add-input" />
+      <button onclick="addMember()" class="random-button add-button">
+        Add new member
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
