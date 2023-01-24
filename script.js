@@ -48,18 +48,20 @@ function changeDisplay() {
 }
 
 function randomize() {
+  console.log("button clicked");
   const seed = people.map((el) => people.indexOf(el));
 
   const selection =
-    people.length === 1
-      ? 0
-      : /*Math.floor(Math.random() * people.length)*/ shuffle(seed);
+    people.length === 1 ? 0 : Math.floor(Math.random() * people.length);
 
   // document.getElementById(
   //   `${people[selection].id}_num`
   // ).style.animationIterationCount = 999;
 
   people[selection].points++;
+  document.getElementById(
+    "rnd-msg"
+  ).textContent = `Given a point to ${people[selection].name}`;
 
   // document.getElementById(`${people[selection].id}_num`).animation =
   //   "span-scale 1s 1 ease-out forward";
@@ -78,7 +80,7 @@ function addMember() {
   people.push({ name: name, points: 0, id: `${name}_num` });
 
   const toAdd = `
-  <li>
+  <li id="${name}_liid">
     <p id="${name}_id">${name} Points:</p>
     <span id="${name}_num">num</span>
   </li>
@@ -87,4 +89,13 @@ function addMember() {
   document.getElementById("names-list").insertAdjacentHTML("afterbegin", toAdd);
 
   changeDisplay();
+}
+
+function resetMembers() {
+  people.forEach(function (el) {
+    document.getElementById(`${el.name}_liid`).remove();
+  });
+  document.getElementById("rnd-msg").textContent = "Add a member to randomize!";
+
+  people = [];
 }

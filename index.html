@@ -13,6 +13,7 @@
           rgb(0, 187, 0),
           rgb(55, 170, 55)
         );
+        /* height: 680px; */
       }
 
       .container {
@@ -116,33 +117,13 @@
   </head>
   <body>
     <div class="container" style="height: fit-content">
-      <ul class="names-list" id="names-list">
-        <!-- <li>
-          <p id="a">[Name] Points:</p>
-          <span id="a_num">num</span>
-        </li>
-        <li>
-          <p id="b">[Name] Points:</p>
-          <span id="b_num">num</span>
-        </li>
-        <li>
-          <p id="c">[Name] Points:</p>
-          <span id="c_num">num</span>
-        </li>
-        <li>
-          <p id="d">[Name] Points:</p>
-          <span id="d_num">num</span>
-        </li>
-        <li>
-          <p id="e">[Name] Points:</p>
-          <span id="e_num">num</span>
-        </li> -->
-      </ul>
+      <ul class="names-list" id="names-list"></ul>
     </div>
 
     <div class="container">
       <button class="random-button" onclick="randomize()">RANDOMIZE</button>
-      <p id="rnd-msg">Click the button to give a point to a random member</p>
+      <button class="random-button" onclick="resetMembers()">RESET</button>
+      <p id="rnd-msg">Add a member to randomize!</p>
     </div>
 
     <div class="container">
